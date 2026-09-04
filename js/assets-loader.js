@@ -1,5 +1,5 @@
 (async()=>{
-  const parts=Array.from({length:15},(_,i)=>`assets/all/part${String(i+1).padStart(2,'0')}.txt`);
+  const parts=Array.from({length:8},(_,i)=>`assets/all/part${String(i+1).padStart(2,'0')}.txt`);
   try{
     const texts=await Promise.all(parts.map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error(url+': '+r.status);return (await r.text()).trim();}));
     const raw=atob(texts.join(''));
